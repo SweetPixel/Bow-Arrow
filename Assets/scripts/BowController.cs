@@ -23,6 +23,10 @@ public class BowController : MonoBehaviour {
 				Vector3 curScreenPoint = new Vector3(t.position.x, t.position.y, screenPoint.z);
 				Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) , offset;
 				transform.position = curPosition;
+
+				ArrowContoller arrow = GameObject.Find("BowObject").GetComponent<ArrowContoller>();
+				arrow.initialization();
+
 			}
 			//}
 		}

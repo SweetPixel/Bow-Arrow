@@ -25,6 +25,7 @@ public class Mousedrag : MonoBehaviour
 					Vector3 curScreenPoint = new Vector3(t.position.x, t.position.y, screenPoint.z);
 					Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) , offset;
 					transform.position = curPosition;
+				//Debug.Log("Bow pos" + curPosition);
 				}
 			//}
 		}

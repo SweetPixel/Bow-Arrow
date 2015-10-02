@@ -44,6 +44,7 @@ public class ArrowContoller : MonoBehaviour {
 			//	text.text = t.position.x.ToString();
 				screenPoint = Camera.main.ScreenToWorldPoint (mid.gameObject.transform.position);
 				offset = mid.gameObject.transform.position - Camera.main.ScreenToWorldPoint (new Vector3 (t.position.x, t.position.y, screenPoint.z));
+				GameObject.Find("RightPoint").GetComponent<LineRenderer>().enabled = true;
 			}
 			
 			if (t.phase == TouchPhase.Moved) {
@@ -51,17 +52,30 @@ public class ArrowContoller : MonoBehaviour {
 				//mid.transform.position = new Vector2(t.position.x, t.position.y); //t.position;
 				points[1] = mid;
 				RenderRope();
-				Vector3 curScreenPoint = new Vector3 (t.position.x, t.position.y, 0);
-				Debug.Log("String" + curScreenPoint);
+				Vector3 curScreenPoint = new Vector3 (t.position.x, 0, -t.position.y);
+				//Debug.Log("String" + curScreenPoint);
 				Vector3 curPosition = Camera.main.ScreenToWorldPoint (curScreenPoint),offset;
+
+				curPosition.y = GameObject.Find("bow_final").transform.position.y;
 				mid.transform.position = curPosition;
 			}
 
 			if (t.phase == TouchPhase.Ended) {
 				initialization();
+				GameObject.Find("RightPoint").GetComponent<LineRenderer>().enabled = false;
 			}
 
 		}
+	}
+
+	void FixedUpdate()
+	{
+		float bowPosZ = GameObject.Find ("Cube").transform.position.z;
+		float arrowPosZ = GameObject.Find ("New Game Object").transform.position.z;
+
+		float dis = bowPosZ - arrowPosZ;
+		Debug.Log ("Distance: " + dis);
+
 	}
 
 	void RenderRope()

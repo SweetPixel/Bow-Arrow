@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-public class BowController : MonoBehaviour {
+public class MyBowController : MonoBehaviour {
 	
 	public Text test;
 	private Vector3 screenPoint= Vector3.zero;

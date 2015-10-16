@@ -68,16 +68,6 @@ public class ArrowContoller : MonoBehaviour {
 		}
 	}
 
-	void FixedUpdate()
-	{
-		float bowPosZ = GameObject.Find ("Cube").transform.position.z;
-		float arrowPosZ = GameObject.Find ("New Game Object").transform.position.z;
-
-		float dis = bowPosZ - arrowPosZ;
-		Debug.Log ("Distance: " + dis);
-
-	}
-
 	void RenderRope()
 	{
 		if (line != null)

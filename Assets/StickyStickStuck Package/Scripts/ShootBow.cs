@@ -43,6 +43,10 @@ namespace StickyStickStuckPackage
         //Bullet life
         public float arrowLife = 30f;
 
+		public Camera mainCamera;
+		public GameObject arrowSpawn;
+
+
         #endregion
 
         #region Unity Functions
@@ -63,17 +67,20 @@ namespace StickyStickStuckPackage
             if (Input.GetButtonDown(inputControl))
             {
                 //Gets bow anaimation
-                Animation bowAnimation = this.transform.parent.GetComponent<Animation>();
+                //Animation bowAnimation = this.transform.parent.GetComponent<Animation>();
 
-                if (bowAnimation.isPlaying != true)
-                {
+                //if (bowAnimation.isPlaying != true)
+                //{
                     //Plays bow animation
-                    bowAnimation.Play();
+                    //bowAnimation.Play();
 
                     //Creates Arrow
-                    GameObject instance = Instantiate(arrow, transform.position, this.transform.rotation) as GameObject;
-
-                    //Shoots Arrow
+                GameObject instance = Instantiate(arrow, transform.position, this.transform.rotation) as GameObject;
+				instance.GetComponent<Rigidbody>().useGravity = true;
+				instance.gameObject.AddComponent<rotate>();
+				/*mainCamera.transform.parent = instance.transform;
+				mainCamera.transform.Rotate (new Vector3(-67,-60f,-140));*/
+					//Shoots Arrow
                     Rigidbody[] ArrayRigs = instance.GetComponentsInChildren<Rigidbody>();
                     foreach (var item in ArrayRigs)
                     {
@@ -82,7 +89,7 @@ namespace StickyStickStuckPackage
 
                     //Destroy arrow after arrowLife
                     DestroyObject(instance, arrowLife);
-                }
+                //}
             }
         }
 

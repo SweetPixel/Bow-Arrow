@@ -44,7 +44,7 @@ public class ArrowContoller : MonoBehaviour {
 			//	text.text = t.position.x.ToString();
 				screenPoint = Camera.main.ScreenToWorldPoint (mid.gameObject.transform.position);
 				offset = mid.gameObject.transform.position - Camera.main.ScreenToWorldPoint (new Vector3 (t.position.x, t.position.y, screenPoint.z));
-				GameObject.Find("RightPoint").GetComponent<LineRenderer>().enabled = true;
+				//GameObject.Find("BowTopPoint").GetComponent<LineRenderer>().enabled = true;
 			}
 			
 			if (t.phase == TouchPhase.Moved) {
@@ -56,13 +56,13 @@ public class ArrowContoller : MonoBehaviour {
 				//Debug.Log("String" + curScreenPoint);
 				Vector3 curPosition = Camera.main.ScreenToWorldPoint (curScreenPoint),offset;
 
-				curPosition.y = GameObject.Find("bow_final").transform.position.y;
+				curPosition.y = GameObject.Find("Bow").transform.position.y;
 				mid.transform.position = curPosition;
 			}
 
 			if (t.phase == TouchPhase.Ended) {
 				initialization();
-				GameObject.Find("RightPoint").GetComponent<LineRenderer>().enabled = false;
+				//GameObject.Find("BowTopPoint").GetComponent<LineRenderer>().enabled = false;
 			}
 
 		}

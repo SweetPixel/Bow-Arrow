@@ -41,4 +41,27 @@ public class RopeMidTest : MonoBehaviour {
 		{
 		this.gameObject.transform.position = new Vector3 (0,0,0);
 		}
+
+	void FixedUpdate()
+	{
+		var minimumDistance = 5.0;
+		var maximumDistance = 30.0;
+		
+		var mínimumDistanceScale = 3.0;
+		var maximumDistanceScale = 0.1;
+		
+		var distance = (transform.position - Camera.main.transform.position).magnitude;
+		float norm =(float) ((distance - minimumDistance) / (maximumDistance - minimumDistance));
+		norm = Mathf.Clamp01(norm);
+		
+		Vector3 minScale = new Vector3 (30, 30, 30);
+		Vector3 maxScale = new Vector3 (5, 5, 5);
+		
+		GameObject.FindGameObjectWithTag("Arrow").transform.localScale = Vector3.Lerp(maxScale, minScale, norm);
+
+		Debug.Log ("Bow position: " + GameObject.Find ("BowandArrow").transform.position);
+		Debug.Log ("Mid position: " + GameObject.Find ("mid").transform.position);
+		Debug.Log ("Difference " + (GameObject.Find ("BowandArrow").transform.position - GameObject.Find ("mid").transform.position));
+	}
+
 }

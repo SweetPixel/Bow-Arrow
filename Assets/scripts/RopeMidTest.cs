@@ -28,6 +28,9 @@ public class RopeMidTest : MonoBehaviour {
 							Vector3 curScreenPoint = new Vector3(t.position.x, t.position.y, screenPoint.z);
 							Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) , offset;
 							transform.position = curPosition;
+
+				GameObject.Find("TailPivot").transform.position = transform.position;
+
 						}
 						if (t.phase == TouchPhase.Ended) 
 						{
@@ -54,10 +57,10 @@ public class RopeMidTest : MonoBehaviour {
 		float norm =(float) ((distance - minimumDistance) / (maximumDistance - minimumDistance));
 		norm = Mathf.Clamp01(norm);
 		
-		Vector3 minScale = new Vector3 (30, 30, 30);
-		Vector3 maxScale = new Vector3 (5, 5, 5);
+		Vector3 minScale = new Vector3 (5, 5, 5);
+		Vector3 maxScale = new Vector3 (2, 2, 2);
 		
-		GameObject.FindGameObjectWithTag("Arrow").transform.localScale = Vector3.Lerp(maxScale, minScale, norm);
+		GameObject.Find("TailPivot").transform.localScale = Vector3.Lerp(maxScale, minScale, norm);
 
 		Debug.Log ("Bow position: " + GameObject.Find ("BowandArrow").transform.position);
 		Debug.Log ("Mid position: " + GameObject.Find ("mid").transform.position);

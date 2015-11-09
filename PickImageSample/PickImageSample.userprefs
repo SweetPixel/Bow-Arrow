@@ -1,0 +1,13 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\..\test\test date time\Assets\Extensions\IOSNative\Other\System\IOSDateTimePicker.cs">
+    <Files>
+      <File FileName="..\..\..\..\test\test date time\Assets\Scripts\iosDateTime.cs" Line="8" Column="31" />
+      <File FileName="..\..\..\..\test\test date time\Assets\Extensions\IOSNative\Other\System\IOSDateTimePicker.cs" Line="33" Column="2" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
